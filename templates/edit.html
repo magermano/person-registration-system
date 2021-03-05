@@ -1,0 +1,38 @@
+<!-- Página de edição de cadastro de pessoas -->
+
+<!-- Utiliza o HTML layout.html como padrão, sendo passado por FLASK, utilizando Jinja2-->
+{% extends "layout.html" %}
+{% block content %}
+<h1><center>EDIÇÃO DE CADASTRO</center></h1>
+
+<!-- Checa por mensagens flash -->
+{% for category, message in get_flashed_messages(with_categories = true) %}
+   <div class="alert alert-danger erro">
+      <center>
+         {{ message }}
+      </center>
+   </div>
+{% endfor %}
+
+<!-- O formulário recebe os dados da pessoa cadastrada para pré-preencher o campo, facilitando a interação do usuário que só altera aquilo que deseja-->
+<p></p>
+<div class= "btn-group">
+   <form action="{{ request.path }}" method="post">
+      
+      <label for="name">Nome</label>
+      <br><input type="text" name="name" value='{{ person.name }}' /><br>
+
+      <label for="email">E-mail</label>
+      <br><input type="text" name="email" value='{{ person.email }}' /><br>
+
+      <label for="phone">Telefone</label>
+      <br><input type="text" name="phone" value='{{ person.phone }}' /><br>
+
+      <label for="birth">Data de Nascimento</label>
+      <br><input type="date" name="birth" value='{{ person.birth }}' /><br>
+      
+      <br><input class="button" type="submit" value="Enviar"/>
+   </form>
+<br>
+
+{% endblock content %}

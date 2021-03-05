@@ -1,0 +1,87 @@
+html {
+  padding-top: 20px;
+  margin-top: 50px;
+  border-top: 50px;
+  padding-bottom: 20px;
+  margin-bottom: 50px;
+  border-bottom: 50px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: white;
+} 
+
+body {
+  width: 800px;
+  margin: 0 auto;
+  background-color: white;
+  padding: 0 10px 10px 10px;
+  border: 10px solid black;
+  border-radius: 10px;
+}
+
+h3 {
+  border-radius: 20px;
+  border-color:black;
+  border: solid;
+}
+
+table, th, td {
+  border: 1px solid black;
+  border-collapse:collapse;
+  padding: 5px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+p {
+  color: black;
+  width: auto;
+  border: 1px solid black;
+}
+
+li {
+  margin: 5px;
+  margin-left: 20px;
+}
+h1 {
+  border-bottom: 15px;
+  border-color: black;
+  border: solid;
+  border-radius: 5px;
+}
+
+.button {
+  float: left;
+  border: 1px solid green;
+}
+
+.btn-group .button {
+  background-color: gray;
+  border: 1px solid rgb(92, 89, 89);
+  color: white;
+  padding: auto;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+  float: left;
+  border-radius: 5px;
+}
+
+.btn-group .button:not(:last-child) {
+  border-right: none; /* Prevent double borders */
+}
+
+.btn-group .button:hover {
+  background-color: rgb(92, 89, 89);
+}
+
+.sucesso {
+  background-color: rgb(214, 251, 177);
+  border: 1px solid black;
+  margin-bottom: 15px;
+}
+
+.erro {
+  background-color: rgb(255, 153, 153);
+  border: 1px solid black;
+  margin-bottom: 15px;
+}

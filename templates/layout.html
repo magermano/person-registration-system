@@ -1,0 +1,50 @@
+<!-- Arquivo html padrão utilizado em todos os outros templates por meio do JINJA2 -->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/static/style.css" media="screen"/>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <!-- Recebe da rota o título a ser mostrado -->
+    {% if title %}
+        <title>Pessoas - {{ title }}</title>
+    {% else %}
+        <title>Pessoas</title>
+    {% endif %}
+</head>
+<body>
+    <!-- Cria bloco editável pelos outros templates. -->
+    {% block content %}{% endblock %}
+
+    <!-- Botões no bottom da página para navegação. Não mostra o botão da própria página. -->
+    <div class= "btn-group">
+        <center>
+        <table style="border: none;">
+            <tr>
+                {% if title != 'Lista' %}
+                    <td style="border: none;" ><a href = "{{ url_for('show_all') }}">
+                        <button class="button" type="submit">Lista de Cadastros</button>
+                {% endif %}
+
+                {% if title != 'Cadastro' %}
+                    <td style="border: none;"><a href = "{{ url_for('new') }}">
+                        <button class="button" type="submit">Novo Cadastro</button>
+                {% endif %}
+
+                {% if title != 'Home' %}
+                    <td style="border: none;"><a href = "{{ url_for('home') }}">
+                        <button class="button" type="submit">Home</button>
+                {% endif %}  
+                
+                {% if title != 'Créditos' %}
+                    <td style="border: none;"><a href = "{{ url_for('creditos') }}">
+                        <button class="button" type="submit">Créditos</button>
+                {% endif %} 
+            </tr>
+        </table>
+        </center>
+    </div> 
+</body>
+</html>

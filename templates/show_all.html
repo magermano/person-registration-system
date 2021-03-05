@@ -1,0 +1,61 @@
+<!-- Listar todas as pessoas cadastradas -->
+
+<!-- Utiliza o HTML layout.html como padrão, sendo passado por FLASK, utilizando Jinja2 -->
+{% extends "layout.html" %}   
+{% block content %}
+<h1>
+   <center>LISTA DE CADASTROS</center>
+</h1>
+<hr/>
+
+<!-- Checa por mensagens flash -->
+{% if get_flashed_messages() %}
+<div class="sucesso">
+   {% for message in get_flashed_messages() %}
+   <center>
+      {{ message }}
+   {% endfor %}
+   </center>
+</div>
+{% endif %}
+
+<!-- Modo de exibição da tabela -->
+<div class="btn-group">
+   <center>
+   <table style=width:auto;>
+      <thead>
+         <tr>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Telefone</th>
+            <th>Nascimento</th>
+         </tr>
+      </thead>
+
+      <tbody>
+         {% for person in persons %}
+            <tr>
+               <td>{{ person.name }}</td>
+               <td>{{ person.email }}</td>
+               <td>{{ person.phone }}</td>
+               <td>{{ person.birth }}</td>
+               <td>
+                  <a href = {{ url_for('edit', person_id=person.id) }}>
+                     <button style = "border:none" class = "button" type="submit">Editar</button> <!-- botão de edição da pessoa -->
+               </td>
+               <td>
+                  <!-- Permite apenas Método POST, então se o usuário inserir a url com delete/person_id, retornará method not allowed -->
+                  <form action="{{ url_for('delete', person_id=person.id) }}" method="POST">
+                     <button style="border:none" class = "button" type="submit">Deletar</button> <!-- botão de deletar a pessoa -->
+                  </form>
+               </td>
+            </tr>
+         {% endfor %}
+      </tbody>
+   </table>
+</center>
+</div>
+
+<br>
+
+{% endblock content %}
